@@ -4,6 +4,8 @@ import UIKit
 
 class StartViewController: UIViewController {
     
+    private let layout = Layout()
+    
     private let verticalStackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -34,6 +36,11 @@ class StartViewController: UIViewController {
                   backgroundColor: .blue)
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         makeGradientBackground()
@@ -43,8 +50,7 @@ class StartViewController: UIViewController {
     private func makeGradientBackground() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor(red: 0.74, green: 0.31, blue: 0.61, alpha: 1.00).cgColor,
-                                UIColor(red: 0.97, green: 0.03, blue: 0.35, alpha: 1.00).cgColor]
+        gradientLayer.colors = [layout.firstGradientColor.cgColor, layout.secondGradientColor.cgColor]
         view.layer.insertSublayer(gradientLayer, at: 0)
         view.backgroundColor = .clear
     }
@@ -82,9 +88,7 @@ class StartViewController: UIViewController {
     
     @objc private func buttonTapped(sender: UIButton) {
         let inputVC = InputViewController(isLoginScreen: sender.currentTitle == "Log In")
-        inputVC.modalTransitionStyle = .crossDissolve
-        inputVC.modalPresentationStyle = .fullScreen
-        present(inputVC, animated: true, completion: nil)
+        navigationController?.pushViewController(inputVC, animated: true)
     }
 }
 

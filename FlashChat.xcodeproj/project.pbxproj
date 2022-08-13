@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CC7351828A844BD00087643 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC7351728A844BD00087643 /* MessageCell.swift */; };
+		5CC7351A28A84D9100087643 /* ChatVC+TableViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC7351928A84D9100087643 /* ChatVC+TableViewDelegates.swift */; };
+		5CC7351C28A84DC600087643 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC7351B28A84DC600087643 /* Message.swift */; };
+		5CC7351E28A84E4600087643 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC7351D28A84E4600087643 /* DummyData.swift */; };
 		5CFFFEDB28A6D22200A9F8CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFFEDA28A6D22200A9F8CE /* AppDelegate.swift */; };
 		5CFFFEDD28A6D22200A9F8CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFFEDC28A6D22200A9F8CE /* SceneDelegate.swift */; };
 		5CFFFEDF28A6D22200A9F8CE /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFFEDE28A6D22200A9F8CE /* StartViewController.swift */; };
@@ -14,9 +18,14 @@
 		5CFFFEE728A6D22300A9F8CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFFFEE528A6D22300A9F8CE /* LaunchScreen.storyboard */; };
 		5CFFFEEF28A6D89D00A9F8CE /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFFEEE28A6D89D00A9F8CE /* InputViewController.swift */; };
 		5CFFFEF328A6DEA500A9F8CE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFFEF228A6DEA500A9F8CE /* ChatViewController.swift */; };
+		5CFFFEF528A6E68E00A9F8CE /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFFFEF428A6E68E00A9F8CE /* Layout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5CC7351728A844BD00087643 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		5CC7351928A84D9100087643 /* ChatVC+TableViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+TableViewDelegates.swift"; sourceTree = "<group>"; };
+		5CC7351B28A84DC600087643 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		5CC7351D28A84E4600087643 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		5CFFFED728A6D22200A9F8CE /* FlashChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CFFFEDA28A6D22200A9F8CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CFFFEDC28A6D22200A9F8CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +35,7 @@
 		5CFFFEE828A6D22300A9F8CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CFFFEEE28A6D89D00A9F8CE /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		5CFFFEF228A6DEA500A9F8CE /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		5CFFFEF428A6E68E00A9F8CE /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +70,14 @@
 			children = (
 				5CFFFEDA28A6D22200A9F8CE /* AppDelegate.swift */,
 				5CFFFEDC28A6D22200A9F8CE /* SceneDelegate.swift */,
+				5CFFFEF428A6E68E00A9F8CE /* Layout.swift */,
 				5CFFFEDE28A6D22200A9F8CE /* StartViewController.swift */,
 				5CFFFEEE28A6D89D00A9F8CE /* InputViewController.swift */,
 				5CFFFEF228A6DEA500A9F8CE /* ChatViewController.swift */,
+				5CC7351928A84D9100087643 /* ChatVC+TableViewDelegates.swift */,
+				5CC7351B28A84DC600087643 /* Message.swift */,
+				5CC7351D28A84E4600087643 /* DummyData.swift */,
+				5CC7351728A844BD00087643 /* MessageCell.swift */,
 				5CFFFEE328A6D22300A9F8CE /* Assets.xcassets */,
 				5CFFFEE528A6D22300A9F8CE /* LaunchScreen.storyboard */,
 				5CFFFEE828A6D22300A9F8CE /* Info.plist */,
@@ -143,8 +158,13 @@
 				5CFFFEDF28A6D22200A9F8CE /* StartViewController.swift in Sources */,
 				5CFFFEDB28A6D22200A9F8CE /* AppDelegate.swift in Sources */,
 				5CFFFEDD28A6D22200A9F8CE /* SceneDelegate.swift in Sources */,
+				5CC7351C28A84DC600087643 /* Message.swift in Sources */,
 				5CFFFEF328A6DEA500A9F8CE /* ChatViewController.swift in Sources */,
 				5CFFFEEF28A6D89D00A9F8CE /* InputViewController.swift in Sources */,
+				5CFFFEF528A6E68E00A9F8CE /* Layout.swift in Sources */,
+				5CC7351828A844BD00087643 /* MessageCell.swift in Sources */,
+				5CC7351E28A84E4600087643 /* DummyData.swift in Sources */,
+				5CC7351A28A84D9100087643 /* ChatVC+TableViewDelegates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +305,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 34LPHPDCF6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FlashChart/Info.plist;
+				INFOPLIST_FILE = FlashChat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -313,7 +333,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 34LPHPDCF6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FlashChart/Info.plist;
+				INFOPLIST_FILE = FlashChat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

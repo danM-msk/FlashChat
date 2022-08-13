@@ -10,9 +10,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let navigationController = UINavigationController(rootViewController: StartViewController())
-        navigationController.isNavigationBarHidden = false
-        window?.rootViewController = navigationController
+        let navVC = UINavigationController(rootViewController: StartViewController())
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithTransparentBackground()
+        navVC.navigationBar.standardAppearance = navBarAppearance
+        window?.rootViewController = navVC
         window?.makeKeyAndVisible()
     }
 

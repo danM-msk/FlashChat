@@ -4,6 +4,8 @@ import UIKit
 
 final internal class InputViewController: UIViewController {
     
+    private let layout = Layout()
+    
     private var isLoginScreen: Bool
     
     private let verticalStackView: UIStackView = {
@@ -48,10 +50,9 @@ final internal class InputViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = false
         title = isLoginScreen ? "Log In with existing user" : "Create new user"
-        view.backgroundColor = isLoginScreen ?
-        UIColor(red: 0.97, green: 0.03, blue: 0.35, alpha: 1.00) :
-        UIColor(red: 0.74, green: 0.31, blue: 0.61, alpha: 1.00)
+        view.backgroundColor = .systemGray6
         configureUI()
     }
     
@@ -71,7 +72,7 @@ final internal class InputViewController: UIViewController {
     
     @objc private func nextButtonTapped() {
         let chatViewController = ChatViewController()
-        present(chatViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(chatViewController, animated: true)
         if !isLoginScreen {
             registerNewUser()
         }
