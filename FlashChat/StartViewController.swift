@@ -17,9 +17,9 @@ class StartViewController: UIViewController {
     
     private let logoLabel: UILabel = {
         let view = UILabel()
-        view.text = "⚡️FlashChat"
         view.textColor = .white
-        view.font = .systemFont(ofSize: 36, weight: .bold)
+        view.text = ""
+        view.font = .systemFont(ofSize: 36, weight: .black)
         view.textAlignment = .center
         return view
     }()
@@ -45,6 +45,18 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         makeGradientBackground()
         configureUI()
+        animateLogoLabel()
+    }
+    
+    private func animateLogoLabel() {
+        let titleText = "⚡️FlashChat"
+        for char in titleText.enumerated() {
+            print(char.offset)
+            print(char.element)
+            Timer.scheduledTimer(withTimeInterval: 0.1 * Double(char.offset), repeats: false) { _ in
+                self.logoLabel.text?.append(char.element)
+            }
+        }
     }
     
     private func makeGradientBackground() {

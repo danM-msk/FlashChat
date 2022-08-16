@@ -10,9 +10,10 @@ extension ChatViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MessageCell.identifier, for: indexPath) as? MessageCell else { return UITableViewCell() }
-        cell.isMyMessage = dummyData.chat[indexPath.row].isMyMessage
-        cell.messageLabel.text = dummyData.chat[indexPath.row].message
-        cell.timeLabel.text = dummyData.chat[indexPath.row].time
+        let cellData = dummyData.chat[indexPath.row]
+        cell.configureCell(isMyMessage: cellData.isMyMessage,
+                           message: cellData.message,
+                           time: cellData.time)
         return cell
     }
 }

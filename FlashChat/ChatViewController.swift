@@ -89,5 +89,8 @@ final internal class ChatViewController: UIViewController, UITableViewDelegate, 
         chatTableView.delegate = self
         chatTableView.dataSource = self
         chatTableView.register(MessageCell.self, forCellReuseIdentifier: MessageCell.identifier)
+        chatTableView.estimatedRowHeight = 60
+        chatTableView.rowHeight = UITableView.automaticDimension
+        chatTableView.separatorStyle = .none
     }
 }

@@ -5,33 +5,32 @@ import UIKit
 final internal class MessageCell: UITableViewCell {
     
     static let identifier = "MessageTableViewCellID"
-
     
-    internal var isMyMessage = false
-    
-    private lazy var horizontalStackView: UIStackView = {
-        let view = UIStackView()
-        view.axis = .vertical
-        view.distribution = .fillProportionally
-        view.spacing = 4
-        view.backgroundColor = isMyMessage ? .blue : .systemGray6
-        view.layer.cornerRadius = 16
-        view.clipsToBounds = true
+    private let bubbleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray6
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    internal lazy var messageLabel: UILabel = {
+    private lazy var messageLabel: UILabel = {
         let view = UILabel()
-        view.textColor = isMyMessage ? .white : .black
+        view.textColor = .black
         view.textAlignment = .left
+        view.numberOfLines = 0
+        view.sizeToFit()
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    internal let timeLabel: UILabel = {
+    private let timeLabel: UILabel = {
         let view = UILabel()
-        view.textColor = .gray
+        view.textColor = .lightGray
         view.textAlignment = .right
+        view.numberOfLines = 1
+        view.font = .systemFont(ofSize: 12, weight: .regular)
+        view.sizeToFit()
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -47,14 +46,43 @@ final internal class MessageCell: UITableViewCell {
 
     private func configureUI() {
         backgroundColor = .clear
-        addSubview(horizontalStackView)
-        horizontalStackView.addArrangedSubview(messageLabel)
-        horizontalStackView.addArrangedSubview(timeLabel)
+        setup(subview: bubbleView, messageLabel, timeLabel)
+        setupConstraints()
+    }
+    
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
-            horizontalStackView.topAnchor.constraint(equalTo: topAnchor),
-            horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            horizontalStackView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -40),
-            horizontalStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            bubbleView.topAnchor.constraint(equalTo: topAnchor, constant: 2),
+            bubbleView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2),
+            bubbleView.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, constant: -40),
+            
+            messageLabel.topAnchor.constraint(equalTo: bubbleView.topAnchor, constant: 4),
+            messageLabel.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor, constant: 4),
+            messageLabel.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor, constant: -4),
+            
+            timeLabel.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor, constant: 4),
+            timeLabel.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor, constant: -4),
+            timeLabel.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: -4)
         ])
+
+    }
+    
+    internal func configureCell(isMyMessage: Bool, message: String, time: String) {
+        messageLabel.text = message
+        timeLabel.text = time
+        
+        if isMyMessage {
+            bubbleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+            bubbleView.backgroundColor = .blue
+            messageLabel.textColor = .white
+        } else {
+            bubbleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        }
+    }
+    
+    private func setup(subview: UIView...) {
+        subview.forEach {
+            addSubview($0)
+        }
     }
 }
